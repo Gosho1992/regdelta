@@ -1,0 +1,13 @@
+name: PRF pre-submission validation checks
+kind: validation_config
+owner: Regulatory Reporting
+templates: [L01]
+rules:
+  - id: VR-101
+    table: rpt_l01
+    check: "exposure_amt >= 0"
+    on_fail: block
+  - id: VR-114
+    table: rpt_l01
+    check: "cpty_id IS NOT NULL"
+    on_fail: warn

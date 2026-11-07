@@ -1,0 +1,7 @@
+name: Operations data-quality scorecard
+kind: management_report
+owner: Data Engineering
+source_table: stg_liquidity
+measures:
+  - position_id
+notes: Counts missing positions per day; no PRF fields involved.

@@ -1,0 +1,7 @@
+name: Sector concentration report
+kind: management_report
+owner: BI Team
+source_table: mart_risk_summary
+group_by: sector
+measures:
+  - total_exposure

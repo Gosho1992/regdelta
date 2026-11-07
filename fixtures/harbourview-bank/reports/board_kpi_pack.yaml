@@ -1,0 +1,6 @@
+name: Quarterly board KPI pack
+kind: management_report
+owner: Finance BI
+source_table: mart_portfolio_kpis
+measures:
+  - total_risk_amount

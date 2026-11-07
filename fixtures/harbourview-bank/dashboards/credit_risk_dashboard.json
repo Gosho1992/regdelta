@@ -1,0 +1,12 @@
+{
+  "name": "Credit risk dashboard",
+  "kind": "dashboard",
+  "owner": "BI Team",
+  "source_table": "mart_risk_summary",
+  "filters": [{"field": "rpt_date", "date_format": "DD/MM/YYYY"}],
+  "tiles": [
+    {"title": "Total exposure", "metric": "total_exposure"},
+    {"title": "Provisions", "metric": "total_provisions"},
+    {"title": "Exposure by sector", "metric": "total_exposure", "split_by": "sector"}
+  ]
+}

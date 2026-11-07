@@ -1,0 +1,7 @@
+name: Monthly credit risk pack
+kind: management_report
+owner: BI Team
+source_table: mart_risk_summary
+measures:
+  - total_exposure
+  - total_provisions

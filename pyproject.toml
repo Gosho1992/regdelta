@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "regdelta"
+version = "1.0.0"
+description = "Trace a regulatory reporting change through SQL, ETL, reports, dashboards and exports - with file:line evidence and a human approval gate."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+regdelta = "regdelta.cli:main"
+
+[tool.setuptools]
+packages = ["regdelta"]
+
+[tool.setuptools.package-data]
+regdelta = ["ui_template.html"]

@@ -1,0 +1,6 @@
+name: Treasury cash-flow ladder
+kind: management_report
+owner: Treasury Data
+source_table: stg_liquidity
+measures:
+  - outflow_30d

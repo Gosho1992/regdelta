@@ -1,0 +1,9 @@
+reg_code,dpm_id,internal_column,source_system,format,description,owner
+REPORTING_DATE,dp-1001,rpt_date,all,DD/MM/YYYY,Reference date of the reported figures,Regulatory Reporting
+LOAN_ID,dp-1010,loan_id,core_banking,,Unique loan identifier,Data Engineering
+COUNTERPARTY_ID,dp-1011,cpty_id,crm,,Counterparty identifier shared by L01 and C02,Data Engineering
+EXPOSURE_AMOUNT,dp-1020,exposure_amt,core_banking,,Gross carrying amount before provisions,Credit Risk Analytics
+PROVISION_AMOUNT,dp-1021,provision_amt,core_banking,,Specific credit risk provisions,Credit Risk Analytics
+CPTY_TYPE,dp-1030,cpty_type,crm,,Institutional sector of the counterparty,Data Engineering
+COUNTRY_CODE,dp-1031,country_cd,crm,ISO 3166-1 alpha-2,Country of residence,Data Engineering
+LEGACY_RATING,dp-1040,legacy_rating,crm,,Legacy internal rating grade,Credit Risk Analytics

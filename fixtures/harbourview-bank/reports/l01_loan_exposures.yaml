@@ -1,0 +1,11 @@
+name: L01 Loan-level exposures
+kind: regulatory_report
+template: L01
+owner: Regulatory Reporting
+source_table: rpt_l01
+fields:
+  REPORTING_DATE: rpt_date
+  LOAN_ID: loan_id
+  COUNTERPARTY_ID: cpty_id
+  EXPOSURE_AMOUNT: exposure_amt
+  PROVISION_AMOUNT: provision_amt

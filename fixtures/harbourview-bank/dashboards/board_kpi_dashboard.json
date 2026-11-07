@@ -1,0 +1,9 @@
+{
+  "name": "Board KPI dashboard",
+  "kind": "dashboard",
+  "owner": "Finance BI",
+  "source_table": "mart_portfolio_kpis",
+  "tiles": [
+    {"title": "Portfolio risk amount", "metric": "total_risk_amount"}
+  ]
+}

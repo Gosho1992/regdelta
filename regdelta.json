@@ -1,0 +1,6 @@
+{
+  "workspace": "fixtures/harbourview-bank",
+  "old_spec": "specs/prf-3.1.json",
+  "new_spec": "specs/prf-3.2.json",
+  "out": "out"
+}

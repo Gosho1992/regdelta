@@ -1,0 +1,41 @@
+{
+  "_comment": "Hand-written ground truth for the seeded Harbourview Bank scenario. Written from the scenario design, not generated from RegDelta output. Tests compare the engine against this file.",
+  "changes": {
+    "CHG-01": {"kind": "field_added", "subject": "LEI_CODE"},
+    "CHG-02": {"kind": "field_removed", "subject": "LEGACY_RATING"},
+    "CHG-03": {"kind": "field_renamed", "subject": "CPTY_TYPE"},
+    "CHG-04": {"kind": "format_changed", "subject": "REPORTING_DATE"},
+    "CHG-05": {"kind": "definition_changed", "subject": "EXPOSURE_AMOUNT"},
+    "CHG-06": {"kind": "rule_added", "subject": "VR-120"},
+    "CHG-07": {"kind": "rule_modified", "subject": "VR-114"}
+  },
+  "findings": {
+    "CHG-01": {
+      "gap": ["reports/c02_counterparty_register.yaml", "exports/frsa_submission_mapping.yaml", "data-dictionary.csv"],
+      "upstream": ["sql/04_rpt_c02.sql", "sql/02_stg_counterparty.sql"],
+      "candidate": ["etl/counterparty_enrichment.py"]
+    },
+    "CHG-02": {
+      "direct": ["data-dictionary.csv", "sql/02_stg_counterparty.sql", "sql/04_rpt_c02.sql", "reports/c02_counterparty_register.yaml", "exports/frsa_submission_mapping.yaml"]
+    },
+    "CHG-03": {
+      "direct": ["data-dictionary.csv", "reports/c02_counterparty_register.yaml", "exports/frsa_submission_mapping.yaml"]
+    },
+    "CHG-04": {
+      "direct": ["data-dictionary.csv", "etl/format_dates.py", "exports/frsa_submission_mapping.yaml", "dashboards/credit_risk_dashboard.json"],
+      "downstream": ["etl/build_submission.py"]
+    },
+    "CHG-05": {
+      "direct": ["data-dictionary.csv", "sql/01_stg_loans.sql", "sql/03_rpt_l01.sql", "sql/05_mart_risk_summary.sql", "reports/l01_loan_exposures.yaml", "reports/validation_checks.yaml", "exports/frsa_submission_mapping.yaml"],
+      "downstream": ["etl/build_submission.py", "reports/mgmt_credit_risk_monthly.yaml", "reports/mgmt_sector_concentration.yaml", "dashboards/credit_risk_dashboard.json"],
+      "candidate": ["sql/06_mart_portfolio_kpis.sql", "reports/board_kpi_pack.yaml", "dashboards/board_kpi_dashboard.json"]
+    },
+    "CHG-06": {
+      "gap": ["reports/validation_checks.yaml"]
+    },
+    "CHG-07": {
+      "direct": ["reports/validation_checks.yaml", "reports/l01_loan_exposures.yaml", "reports/c02_counterparty_register.yaml", "exports/frsa_submission_mapping.yaml"]
+    }
+  },
+  "never_affected": ["sql/07_stg_liquidity.sql", "reports/liquidity_lcr.yaml", "reports/treasury_cashflow.yaml", "reports/ops_data_quality.yaml"]
+}

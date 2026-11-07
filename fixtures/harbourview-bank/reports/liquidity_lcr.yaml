@@ -1,0 +1,9 @@
+name: Liquidity coverage ratio report
+kind: regulatory_report
+template: LQ1
+owner: Treasury Data
+source_table: stg_liquidity
+fields:
+  REPORT_DATE_LOCAL: rpt_date_local
+  HQLA_AMOUNT: hqla_amount
+  OUTFLOW_30D: outflow_30d

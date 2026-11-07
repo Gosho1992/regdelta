@@ -1,0 +1,20 @@
+name: FRSA submission export mapping
+kind: export
+owner: Regulatory Reporting
+target: FRSA reporting portal (fictional)
+L01:
+  source_table: rpt_l01
+  columns:
+    REPORTING_DATE: {column: rpt_date, format: "DD/MM/YYYY"}
+    LOAN_ID: {column: loan_id}
+    COUNTERPARTY_ID: {column: cpty_id}
+    EXPOSURE_AMOUNT: {column: exposure_amt}
+    PROVISION_AMOUNT: {column: provision_amt}
+C02:
+  source_table: rpt_c02
+  columns:
+    REPORTING_DATE: {column: rpt_date, format: "DD/MM/YYYY"}
+    COUNTERPARTY_ID: {column: cpty_id}
+    CPTY_TYPE: {column: cpty_type}
+    COUNTRY_CODE: {column: country_cd}
+    LEGACY_RATING: {column: legacy_rating}

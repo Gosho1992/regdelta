@@ -1,0 +1,1 @@
+@regdelta-spec-analyst New reporting change package: Harbourview Bank, PRF 3.1 → 3.2 (fictional demo data in fixtures/harbourview-bank). Please build the Change Register and hand it to the Asset Mapper. I'm the Human Reporting Owner and will review before any plan is made.

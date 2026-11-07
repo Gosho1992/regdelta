@@ -1,0 +1,11 @@
+name: C02 Counterparty register
+kind: regulatory_report
+template: C02
+owner: Regulatory Reporting
+source_table: rpt_c02
+fields:
+  REPORTING_DATE: rpt_date
+  COUNTERPARTY_ID: cpty_id
+  CPTY_TYPE: cpty_type
+  COUNTRY_CODE: country_cd
+  LEGACY_RATING: legacy_rating

@@ -1,0 +1,33 @@
+{
+  "framework": "PRF",
+  "framework_name": "Prudential Reporting Framework (fictional)",
+  "version": "3.1",
+  "authority": "FRSA - Fictional Regulatory Supervisory Authority",
+  "effective_date": "2026-01-01",
+  "templates": [
+    {"code": "L01", "name": "Loan-level exposures"},
+    {"code": "C02", "name": "Counterparty register"}
+  ],
+  "fields": [
+    {"dpm_id": "dp-1001", "code": "REPORTING_DATE", "templates": ["L01", "C02"], "type": "date", "format": "DD/MM/YYYY", "mandatory": true,
+     "definition": "Reference date of the reported figures.", "section": "PRF 3.1 s.2.1"},
+    {"dpm_id": "dp-1010", "code": "LOAN_ID", "templates": ["L01"], "type": "string(32)", "format": null, "mandatory": true,
+     "definition": "Unique identifier of the loan within the reporting entity.", "section": "PRF 3.1 s.3.1"},
+    {"dpm_id": "dp-1011", "code": "COUNTERPARTY_ID", "templates": ["L01", "C02"], "type": "string(32)", "format": null, "mandatory": true,
+     "definition": "Identifier of the counterparty, consistent across templates.", "section": "PRF 3.1 s.3.2"},
+    {"dpm_id": "dp-1020", "code": "EXPOSURE_AMOUNT", "templates": ["L01"], "type": "decimal(18,2)", "format": null, "mandatory": true,
+     "definition": "Gross carrying amount of the exposure before provisions.", "section": "PRF 3.1 s.3.4"},
+    {"dpm_id": "dp-1021", "code": "PROVISION_AMOUNT", "templates": ["L01"], "type": "decimal(18,2)", "format": null, "mandatory": true,
+     "definition": "Specific credit risk provisions held against the exposure.", "section": "PRF 3.1 s.3.5"},
+    {"dpm_id": "dp-1030", "code": "CPTY_TYPE", "templates": ["C02"], "type": "enum", "format": null, "mandatory": true,
+     "definition": "Institutional sector of the counterparty.", "section": "PRF 3.1 s.4.2"},
+    {"dpm_id": "dp-1031", "code": "COUNTRY_CODE", "templates": ["C02"], "type": "string(2)", "format": "ISO 3166-1 alpha-2", "mandatory": true,
+     "definition": "Country of residence of the counterparty.", "section": "PRF 3.1 s.4.3"},
+    {"dpm_id": "dp-1040", "code": "LEGACY_RATING", "templates": ["C02"], "type": "string(4)", "format": null, "mandatory": false,
+     "definition": "Internal legacy rating grade of the counterparty.", "section": "PRF 3.1 s.4.9"}
+  ],
+  "validation_rules": [
+    {"id": "VR-101", "templates": ["L01"], "severity": "error", "expression": "EXPOSURE_AMOUNT >= 0", "section": "PRF 3.1 Annex V"},
+    {"id": "VR-114", "templates": ["L01"], "severity": "warning", "expression": "L01.COUNTERPARTY_ID is not empty", "section": "PRF 3.1 Annex V"}
+  ]
+}

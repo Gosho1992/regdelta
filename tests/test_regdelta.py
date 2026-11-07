@@ -176,6 +176,8 @@ class TestApprovalGate(Base):
         d = self.fresh_out()
         with self.assertRaises(SystemExit):
             workflow.record_review(self.ctx_for(d), "remediation-planner", "all", None, None, "")
+        with self.assertRaises(SystemExit):
+            workflow.record_review(self.ctx_for(d), "regdelta-asset-mapper", "all", None, None, "")
         workflow.record_review(self.ctx_for(d), "Zain Zia", "all", None, None, "ok")
         rec = json.loads((d / "approval-record.json").read_text(encoding="utf-8"))
         rec["reviewer"] = "asset-mapper"

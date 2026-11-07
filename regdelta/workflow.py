@@ -263,7 +263,7 @@ def record_review(ctx: Ctx, reviewer: str, confirm: str | None, reject: str | No
         raise SystemExit("No assessment yet. Run `regdelta map` first.")
     a = read_json(a_path)
     findings = a["findings"]
-    if not reviewer or reviewer.strip().lower() in gate.AGENT_NAMES:
+    if gate.is_agent_name(reviewer):
         raise SystemExit("The reviewer must be the human reporting owner (use their name), not an agent.")
     c, r, i = parse_ids(confirm, findings), parse_ids(reject, findings), parse_ids(investigate, findings)
     decisions = {}

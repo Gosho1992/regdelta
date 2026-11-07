@@ -19,6 +19,12 @@ from pathlib import Path
 APPROVAL_SCHEMA = "regdelta.approval/v1"
 DECISIONS = {"confirmed", "rejected", "needs_investigation"}
 AGENT_NAMES = {"spec-analyst", "specification-analyst", "asset-mapper", "remediation-planner", "regdelta", "agent", "claude"}
+AGENT_MARKERS = ("spec-analyst", "specification-analyst", "asset-mapper", "remediation-planner", "regdelta-")
+
+
+def is_agent_name(name: str) -> bool:
+    n = (name or "").strip().lower()
+    return not n or n in AGENT_NAMES or any(m in n for m in AGENT_MARKERS)
 
 
 def canonical(obj) -> str:
@@ -87,7 +93,7 @@ def check(out: Path, workspace: Path, actor: str = "cli", log: bool = True) -> d
                       f"Approval record is malformed ({'missing ' + ', '.join(missing) if missing else 'wrong schema'}).",
                       fingerprint=current)
     reviewer = str(rec.get("reviewer", "")).strip()
-    if not reviewer or reviewer.lower() in AGENT_NAMES:
+    if is_agent_name(reviewer):
         return result(False, "NOT_A_HUMAN_REVIEWER", f"Reviewer '{reviewer}' is not a human reporting owner.", fingerprint=current)
     if rec["assessment_fingerprint"] != current:
         return result(False, "FINGERPRINT_MISMATCH",

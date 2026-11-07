@@ -61,7 +61,8 @@ def log_event(ctx: Ctx, event: str, detail: str):
 
 def _write(path: Path, text: str):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding="utf-8", newline="\n")
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(text)
 
 
 def read_json(path: Path):
